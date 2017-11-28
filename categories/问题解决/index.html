@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="C#,Cake,自动化构建," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -93,17 +93,12 @@
 
 
 
-<meta name="description" content="1.  Cake简介参考列表    Cake 官方网站   GitHub 官方仓库 C#Make自动化构建-简介 by Blackheart @博客园    2. 常用函数 Task  IsDependentOn(string taskName)   WithCriteria(string criteria)   Done(Action action) OnError() ReportError">
-<meta name="keywords" content="C#,Cake,自动化构建">
-<meta property="og:type" content="article">
-<meta property="og:title" content="C# Cake 自动化构建工具">
-<meta property="og:url" content="http://rizo.coding.me/2017/06/23/CSharp-Cake-自动化构建工具/index.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="rizo">
+<meta property="og:url" content="http://rizo.coding.me/categories/问题解决/index.html">
 <meta property="og:site_name" content="rizo">
-<meta property="og:description" content="1.  Cake简介参考列表    Cake 官方网站   GitHub 官方仓库 C#Make自动化构建-简介 by Blackheart @博客园    2. 常用函数 Task  IsDependentOn(string taskName)   WithCriteria(string criteria)   Done(Action action) OnError() ReportError">
-<meta property="og:updated_time" content="2017-06-26T06:42:27.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C# Cake 自动化构建工具">
-<meta name="twitter:description" content="1.  Cake简介参考列表    Cake 官方网站   GitHub 官方仓库 C#Make自动化构建-简介 by Blackheart @博客园    2. 常用函数 Task  IsDependentOn(string taskName)   WithCriteria(string criteria)   Done(Action action) OnError() ReportError">
+<meta name="twitter:title" content="rizo">
 
 
 
@@ -131,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://rizo.coding.me/2017/06/23/CSharp-Cake-自动化构建工具/"/>
+  <link rel="canonical" href="http://rizo.coding.me/categories/问题解决/"/>
 
 
 
 
 
-  <title>C# Cake 自动化构建工具 | rizo</title>
+  <title>分类: 问题解决 | rizo</title>
   
 
 
@@ -162,7 +157,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -266,184 +261,157 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/06/23/CSharp-Cake-自动化构建工具/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rizo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="rizo">
-    </span>
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h1>问题解决<small>分类</small>
+      </h1>
+    </div>
 
     
-      <header class="post-header">
+      
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">C# Cake 自动化构建工具</h1>
-        
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/08/26/ProblemSolving/忽略强签名验证/" itemprop="url">
               
-                <span class="post-meta-item-text">发表于</span>
+                <span itemprop="name">忽略.net dll的强签名验证</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T14:26:30+08:00">
-                2017-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h3 id="1-Cake简介"><a href="#1-Cake简介" class="headerlink" title="1.  Cake简介"></a>1.  Cake简介</h3><p>参考列表  </p>
-<ul>
-<li><a href="http://www.cakebuild.net" target="_blank" rel="external"><strong>Cake 官方网站</strong></a>  </li>
-<li><a href="https://github.com/cake-build/cake" target="_blank" rel="external"><strong>GitHub 官方仓库</strong></a></li>
-<li><a href="http://www.cnblogs.com/linianhui/p/cake-overview.html" target="_blank" rel="external"><strong>C#Make自动化构建-简介</strong></a> by Blackheart @博客园  </li>
-</ul>
-<h3 id="2-常用函数"><a href="#2-常用函数" class="headerlink" title="2. 常用函数"></a>2. 常用函数</h3><ul>
-<li><p>Task</p>
-<ul>
-<li>IsDependentOn(string taskName)  </li>
-<li>WithCriteria(string criteria)  </li>
-<li>Done(Action action)</li>
-<li>OnError()</li>
-<li>ReportError</li>
-<li>Finally</li>
-</ul>
-</li>
-<li><p>Argument(string argName, string defaultValue)<br>  用于接收执行build.ps1脚本时传入的参数，未指定 <em>argName</em> 参数时使用 <em>defaultValue</em>  </p>
-</li>
-<li><p>Information(string message)<br>  用于向终端输出脚本信息  </p>
-</li>
-<li><p>CleanDirectory(string filePath)    </p>
-</li>
-<li>DeleteFile(stirng filePath)  </li>
-<li>GetFiles(string folder)  </li>
-<li>GetDirectories(string folder)</li>
-<li>MakeAbsolute()</li>
-</ul>
-<h3 id="3-常用工具"><a href="#3-常用工具" class="headerlink" title="3. 常用工具"></a>3. 常用工具</h3><ul>
-<li>MSBuild</li>
-<li>Dotfuscator</li>
-<li>InnoSetup</li>
-</ul>
-<h3 id="5-执行外部命令"><a href="#5-执行外部命令" class="headerlink" title="5. 执行外部命令"></a>5. 执行外部命令</h3><h3 id="6-使用Addin"><a href="#6-使用Addin" class="headerlink" title="6. 使用Addin"></a>6. 使用Addin</h3>
-      
-    </div>
-
-    <div>
-      
+            </a>
         
+      </h2>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-08-26T14:46:08+08:00"
+              content="2017-08-26" >
+          08-26
+        </time>
+      </div>
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/C-Cake-自动化构建/" rel="tag"># C#,Cake,自动化构建</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2017/06/22/how-to-cache-git-credential/" rel="next" title="how to cache git credential">
-                <i class="fa fa-chevron-left"></i> how to cache git credential
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/23/VSCode-关联文件类型/" rel="prev" title="VSCode 关联文件类型">
-                VSCode 关联文件类型 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
-
-    <div class="post-spread">
+    
       
-    </div>
-  </div>
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/07/25/ProblemSolving/如何查看lib文件的导出符号-VisualStudio/" itemprop="url">
+              
+                <span itemprop="name">如何查看lib文件的导出符号(VisualStudio)</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-07-25T11:03:54+08:00"
+              content="2017-07-25" >
+          07-25
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/07/21/ProblemSolving/输出文件夹里所有文件的名称/" itemprop="url">
+              
+                <span itemprop="name">输出文件夹里所有文件的名称</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-07-21T10:39:43+08:00"
+              content="2017-07-21" >
+          07-21
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/06/23/ProblemSolving/VSCode-关联文件类型/" itemprop="url">
+              
+                <span itemprop="name">VSCode 关联文件类型</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-06-23T14:56:20+08:00"
+              content="2017-06-23" >
+          06-23
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2017/06/22/ProblemSolving/how-to-cache-git-credential/" itemprop="url">
+              
+                <span itemprop="name">how to cache git credential</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2017-06-22T08:38:40+08:00"
+              content="2017-06-22" >
+          06-22
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+    
+  </section>
+
+  
+
 
 
           </div>
@@ -451,10 +419,6 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -474,17 +438,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -499,12 +454,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -528,6 +492,12 @@
 
         
         
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
 
         
         
@@ -537,22 +507,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Cake简介"><span class="nav-number">1.</span> <span class="nav-text">1.  Cake简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-常用函数"><span class="nav-number">2.</span> <span class="nav-text">2. 常用函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-常用工具"><span class="nav-number">3.</span> <span class="nav-text">3. 常用工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-执行外部命令"><span class="nav-number">4.</span> <span class="nav-text">5. 执行外部命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用Addin"><span class="nav-number">5.</span> <span class="nav-text">6. 使用Addin</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -591,6 +545,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
         
       </div>
@@ -666,10 +640,10 @@
   
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-
+  
 
   
 
@@ -724,6 +698,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

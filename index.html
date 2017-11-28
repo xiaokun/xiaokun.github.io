@@ -273,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/06/23/VSCode-关联文件类型/">
+    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/08/26/ProblemSolving/忽略强签名验证/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="rizo">
@@ -292,7 +292,426 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/23/VSCode-关联文件类型/" itemprop="url">VSCode 关联文件类型</a></h1>
+                <a class="post-title-link" href="/2017/08/26/ProblemSolving/忽略强签名验证/" itemprop="url">忽略.net dll的强签名验证</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T14:46:08+08:00">
+                2017-08-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/问题解决/" itemprop="url" rel="index">
+                    <span itemprop="name">问题解决</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="方法一，使用sn-exe-Vr命令"><a href="#方法一，使用sn-exe-Vr命令" class="headerlink" title="方法一，使用sn.exe -Vr命令"></a>方法一，使用sn.exe -Vr命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sn.exe -Vr ***.dll</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">REM build.cmd</div><div class="line"></div><div class="line">@echo off</div><div class="line">chcp 65001</div><div class="line"></div><div class="line">set sn=&quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6 Tools\sn.exe&quot;</div><div class="line">if not exist %sn% goto error_exe_not_found</div><div class="line"></div><div class="line">::build.cmd 放置在项目目录的build子目录中,dll放置在bin目录中 </div><div class="line"></div><div class="line">cd %~d0</div><div class="line">cd %~dp0 </div><div class="line">cd ..</div><div class="line">cd bin</div><div class="line"></div><div class="line">if exist &quot;App.exe&quot; %sn% -Vr &quot;App.exe&quot;</div><div class="line">if exist &quot;NRBS.dll&quot; %sn% -Vr &quot;HNRBS.dll&quot;</div><div class="line">if exist &quot;Utility.dll&quot; %sn% -Vr &quot;Utility.dll&quot;</div><div class="line">if exist &quot;UI.Controls.dll&quot; %sn% -Vr &quot;UI.Controls.dll&quot;</div><div class="line"></div><div class="line">echo 设置完成！</div><div class="line"></div><div class="line">goto end</div><div class="line"></div><div class="line">:error_exe_not_found</div><div class="line">echo sn未找到，路径参数设置失败，</div><div class="line">goto end</div><div class="line"></div><div class="line">::--------------------------------------------------------------------------------------------------------------------</div><div class="line">:end</div><div class="line">pause</div></pre></td></tr></table></figure>
+<h2 id="方法二，-忽略所有dll的强名称验证"><a href="#方法二，-忽略所有dll的强名称验证" class="headerlink" title="方法二， 忽略所有dll的强名称验证"></a>方法二， 忽略所有dll的强名称验证</h2><p>将下面代码保存为 stong_name.reg 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">REM strong_name.reg</div><div class="line"></div><div class="line">reg DELETE &quot;HKLM\Software\Microsoft\StrongName\Verification&quot; /f</div><div class="line">reg ADD &quot;HKLM\Software\Microsoft\StrongName\Verification\*,*&quot; /f</div><div class="line">reg DELETE &quot;HKLM\Software\Wow6432Node\Microsoft\StrongName\Verification&quot; /f</div><div class="line">reg ADD &quot;HKLM\Software\Wow6432Node\Microsoft\StrongName\Verification\*,*&quot; /f</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/07/25/ProblemSolving/如何查看lib文件的导出符号-VisualStudio/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rizo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rizo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/25/ProblemSolving/如何查看lib文件的导出符号-VisualStudio/" itemprop="url">如何查看lib文件的导出符号(VisualStudio)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-25T11:03:54+08:00">
+                2017-07-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/问题解决/" itemprop="url" rel="index">
+                    <span itemprop="name">问题解决</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>打开VS自带的开发命令行（Developer Command Promot for vs**）</li>
+</ol>
+<ol>
+<li>输入命令</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Program Files (x86)\Microsoft Visual Studio 14.0&gt; dumpbin /exports &quot;path_to_lib_file&quot;</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/07/21/ProblemSolving/输出文件夹里所有文件的名称/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rizo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rizo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/21/ProblemSolving/输出文件夹里所有文件的名称/" itemprop="url">输出文件夹里所有文件的名称</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T10:39:43+08:00">
+                2017-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/问题解决/" itemprop="url" rel="index">
+                    <span itemprop="name">问题解决</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：  </p>
+<ol>
+<li><p>输出当前目录下所有文件的文件名到output.txt  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &gt; output.txt /b /o</div></pre></td></tr></table></figure>
+</li>
+<li><p>输出指定目录下的所有文件的文件名到output.txt  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &quot;path&quot; &gt; output.txt /b /o</div></pre></td></tr></table></figure>
+</li>
+<li><p>导出包括子文件下所有文件的文件名  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tree /f &gt; 1.txt</div></pre></td></tr></table></figure></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/06/23/ProblemSolving/VSCode-关联文件类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="rizo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="rizo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/06/23/ProblemSolving/VSCode-关联文件类型/" itemprop="url">VSCode 关联文件类型</a></h1>
         
 
         <div class="post-meta">
@@ -314,6 +733,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/问题解决/" itemprop="url" rel="index">
+                    <span itemprop="name">问题解决</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -393,7 +834,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/06/23/CSharp-Cake-自动化构建工具/">
+    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/06/22/ProblemSolving/how-to-cache-git-credential/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="rizo">
@@ -412,151 +853,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/23/CSharp-Cake-自动化构建工具/" itemprop="url">C# Cake 自动化构建工具</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-23T14:26:30+08:00">
-                2017-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="1-Cake简介"><a href="#1-Cake简介" class="headerlink" title="1.  Cake简介"></a>1.  Cake简介</h3><p>参考列表  </p>
-<ul>
-<li><a href="http://www.cakebuild.net" target="_blank" rel="external"><strong>Cake 官方网站</strong></a>  </li>
-<li><a href="https://github.com/cake-build/cake" target="_blank" rel="external"><strong>GitHub 官方仓库</strong></a></li>
-<li><a href="http://www.cnblogs.com/linianhui/p/cake-overview.html" target="_blank" rel="external"><strong>C#Make自动化构建-简介</strong></a> by Blackheart @博客园  </li>
-</ul>
-<h3 id="2-常用函数"><a href="#2-常用函数" class="headerlink" title="2. 常用函数"></a>2. 常用函数</h3><ul>
-<li><p>Task</p>
-<ul>
-<li>IsDependentOn(string taskName)  </li>
-<li>WithCriteria(string criteria)  </li>
-<li>Done(Action action)</li>
-<li>OnError()</li>
-<li>ReportError</li>
-<li>Finally</li>
-</ul>
-</li>
-<li><p>Argument(string argName, string defaultValue)<br>  用于接收执行build.ps1脚本时传入的参数，未指定 <em>argName</em> 参数时使用 <em>defaultValue</em>  </p>
-</li>
-<li><p>Information(string message)<br>  用于向终端输出脚本信息  </p>
-</li>
-<li><p>CleanDirectory(string filePath)    </p>
-</li>
-<li>DeleteFile(stirng filePath)  </li>
-<li>GetFiles(string folder)  </li>
-<li>GetDirectories(string folder)</li>
-<li>MakeAbsolute()</li>
-</ul>
-<h3 id="3-常用工具"><a href="#3-常用工具" class="headerlink" title="3. 常用工具"></a>3. 常用工具</h3><ul>
-<li>MSBuild</li>
-<li>Dotfuscator</li>
-<li>InnoSetup</li>
-</ul>
-<h3 id="5-执行外部命令"><a href="#5-执行外部命令" class="headerlink" title="5. 执行外部命令"></a>5. 执行外部命令</h3><h3 id="6-使用Addin"><a href="#6-使用Addin" class="headerlink" title="6. 使用Addin"></a>6. 使用Addin</h3>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/06/22/how-to-cache-git-credential/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="rizo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="rizo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/22/how-to-cache-git-credential/" itemprop="url">how to cache git credential</a></h1>
+                <a class="post-title-link" href="/2017/06/22/ProblemSolving/how-to-cache-git-credential/" itemprop="url">how to cache git credential</a></h1>
         
 
         <div class="post-meta">
@@ -578,6 +875,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/问题解决/" itemprop="url" rel="index">
+                    <span itemprop="name">问题解决</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -695,12 +1014,21 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
           
 
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
           
 
           
@@ -723,6 +1051,12 @@
         </div>
 
         
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
         
 
         
@@ -771,6 +1105,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
         
       </div>
@@ -904,6 +1258,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
