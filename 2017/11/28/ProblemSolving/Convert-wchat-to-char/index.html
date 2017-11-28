@@ -93,16 +93,16 @@
 
 
 
-<meta name="description" content="方法一，使用sn.exe -Vr命令1sn.exe -Vr ***.dll 1234567891011121314151617181920212223242526272829303132REM build.cmd@echo offchcp 65001set sn=&amp;quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX">
+<meta name="description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。  std::wcstombs  12#include &amp;lt;stdlib.h&amp;gt;length = wcstombs(mbstring,wcstring,N); stackoverflow上的高票答案，然并卵，我测试的情况是所有中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="忽略.net dll的强签名验证">
-<meta property="og:url" content="http://rizo.coding.me/2017/08/26/ProblemSolving/忽略强签名验证/index.html">
+<meta property="og:title" content="wchat_t* 转 char*">
+<meta property="og:url" content="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/index.html">
 <meta property="og:site_name" content="rizo">
-<meta property="og:description" content="方法一，使用sn.exe -Vr命令1sn.exe -Vr ***.dll 1234567891011121314151617181920212223242526272829303132REM build.cmd@echo offchcp 65001set sn=&amp;quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX">
-<meta property="og:updated_time" content="2017-08-26T06:52:34.013Z">
+<meta property="og:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。  std::wcstombs  12#include &amp;lt;stdlib.h&amp;gt;length = wcstombs(mbstring,wcstring,N); stackoverflow上的高票答案，然并卵，我测试的情况是所有中">
+<meta property="og:updated_time" content="2017-11-28T10:02:08.851Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="忽略.net dll的强签名验证">
-<meta name="twitter:description" content="方法一，使用sn.exe -Vr命令1sn.exe -Vr ***.dll 1234567891011121314151617181920212223242526272829303132REM build.cmd@echo offchcp 65001set sn=&amp;quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX">
+<meta name="twitter:title" content="wchat_t* 转 char*">
+<meta name="twitter:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。  std::wcstombs  12#include &amp;lt;stdlib.h&amp;gt;length = wcstombs(mbstring,wcstring,N); stackoverflow上的高票答案，然并卵，我测试的情况是所有中">
 
 
 
@@ -130,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://rizo.coding.me/2017/08/26/ProblemSolving/忽略强签名验证/"/>
+  <link rel="canonical" href="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/"/>
 
 
 
 
 
-  <title>忽略.net dll的强签名验证 | rizo</title>
+  <title>wchat_t* 转 char* | rizo</title>
   
 
 
@@ -275,7 +275,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/08/26/ProblemSolving/忽略强签名验证/">
+    <link itemprop="mainEntityOfPage" href="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="rizo">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">忽略.net dll的强签名验证</h1>
+          <h1 class="post-title" itemprop="name headline">wchat_t* 转 char*</h1>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T14:46:08+08:00">
-                2017-08-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-28T17:39:35+08:00">
+                2017-11-28
               </time>
             
 
@@ -366,10 +366,22 @@
       
 
       
-        <h2 id="方法一，使用sn-exe-Vr命令"><a href="#方法一，使用sn-exe-Vr命令" class="headerlink" title="方法一，使用sn.exe -Vr命令"></a>方法一，使用sn.exe -Vr命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sn.exe -Vr ***.dll</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">REM build.cmd</div><div class="line"></div><div class="line">@echo off</div><div class="line">chcp 65001</div><div class="line"></div><div class="line">set sn=&quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6 Tools\sn.exe&quot;</div><div class="line">if not exist %sn% goto error_exe_not_found</div><div class="line"></div><div class="line">::build.cmd 放置在项目目录的build子目录中,dll放置在bin目录中 </div><div class="line"></div><div class="line">cd %~d0</div><div class="line">cd %~dp0 </div><div class="line">cd ..</div><div class="line">cd bin</div><div class="line"></div><div class="line">if exist &quot;App.exe&quot; %sn% -Vr &quot;App.exe&quot;</div><div class="line">if exist &quot;NRBS.dll&quot; %sn% -Vr &quot;HNRBS.dll&quot;</div><div class="line">if exist &quot;Utility.dll&quot; %sn% -Vr &quot;Utility.dll&quot;</div><div class="line">if exist &quot;UI.Controls.dll&quot; %sn% -Vr &quot;UI.Controls.dll&quot;</div><div class="line"></div><div class="line">echo 设置完成！</div><div class="line"></div><div class="line">goto end</div><div class="line"></div><div class="line">:error_exe_not_found</div><div class="line">echo sn未找到，路径参数设置失败，</div><div class="line">goto end</div><div class="line"></div><div class="line">::--------------------------------------------------------------------------------------------------------------------</div><div class="line">:end</div><div class="line">pause</div></pre></td></tr></table></figure>
-<h2 id="方法二，-忽略所有dll的强名称验证"><a href="#方法二，-忽略所有dll的强名称验证" class="headerlink" title="方法二， 忽略所有dll的强名称验证"></a>方法二， 忽略所有dll的强名称验证</h2><p>将下面代码保存为 stong_name.reg 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">REM strong_name.reg</div><div class="line"></div><div class="line">reg DELETE &quot;HKLM\Software\Microsoft\StrongName\Verification&quot; /f</div><div class="line">reg ADD &quot;HKLM\Software\Microsoft\StrongName\Verification\*,*&quot; /f</div><div class="line">reg DELETE &quot;HKLM\Software\Wow6432Node\Microsoft\StrongName\Verification&quot; /f</div><div class="line">reg ADD &quot;HKLM\Software\Wow6432Node\Microsoft\StrongName\Verification\*,*&quot; /f</div></pre></td></tr></table></figure>
+        <p>最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，<br>debug，一番折腾。现将结果记录如下。</p>
+<ol>
+<li><a href="http://www.thinkage.ca/english/gcos/expl/c/lib/wcstom.html" target="_blank" rel="external">std::wcstombs</a></li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdlib.h&gt;</div><div class="line">length = wcstombs(mbstring,wcstring,N);</div></pre></td></tr></table></figure>
+<p><a href="https://stackoverflow.com/questions/3019977/convert-wchar-t-to-char" target="_blank" rel="external">stackoverflow</a>上的高票答案，然并卵，我测试的情况是所有中文都被吃掉或者显示为问号。</p>
+<p>某些情况下可能有用，没有更多的测试，仅供参考。</p>
+<ol>
+<li><a href="https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k(STRINGAPISET%2FWideCharToMultiByte" target="_blank" rel="external">WideCharToMultiByte</a>;k(WideCharToMultiByte);k(DevLang-C%2B%2B);k(TargetOS-Windows)&amp;rd=true)</li>
+</ol>
+<p>代码如下<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将wchar_t* 转成char*的实现函数如下：</span></div><div class="line"><span class="function">HRESULT <span class="title">w2c</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span> *pwSrcStr, <span class="keyword">char</span> *pcDestStr, <span class="keyword">size_t</span> len)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pwSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	<span class="keyword">int</span> nlength = (<span class="keyword">int</span>)wcslen(pwSrcStr);</div><div class="line"></div><div class="line">	<span class="comment">//获取转换后的长度</span></div><div class="line">	<span class="keyword">int</span> nbytes = WideCharToMultiByte(CP_UTF8, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">		<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">		pwSrcStr,     <span class="comment">// wide character string to convert</span></div><div class="line">		nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no output buffer given, we just want to know how long it needs to be</span></div><div class="line">		<span class="number">0</span>,</div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">		<span class="literal">NULL</span>);    <span class="comment">// we don't want to know if a character didn't make it through the translation</span></div><div class="line">				  <span class="comment">// make sure the buffer is big enough for this, making it larger if necessary</span></div><div class="line"></div><div class="line">	<span class="keyword">if</span> (nbytes &gt; (<span class="keyword">int</span>)len) &#123;</div><div class="line">		<span class="keyword">return</span> MF_E_INVALIDINDEX;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 通过以上得到的结果，转换unicode 字符为ascii 字符</span></div><div class="line">	<span class="keyword">int</span> result = WideCharToMultiByte(CP_UTF8, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">		<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">		pwSrcStr,   <span class="comment">// wide character string to convert</span></div><div class="line">		nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">		pcDestStr, <span class="comment">// put the output ascii characters at the end of the buffer</span></div><div class="line">		nbytes,                           <span class="comment">// there is at least this much space there</span></div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">		<span class="literal">NULL</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (result &lt;= <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">return</span> HRESULT_FROM_WIN32(GetLastError());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	pcDestStr[result] = <span class="string">'\0'</span>;</div><div class="line">	<span class="keyword">return</span> S_OK;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将char* 转成wchar_t*的实现函数如下</span></div><div class="line"><span class="comment">//这是把asii字符转换为unicode字符，和上面相同的原理</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">c2w</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pcSrcStr, <span class="keyword">wchar_t</span> *pwDestStr, <span class="keyword">size_t</span> len)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pcSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="keyword">size_t</span> nu = <span class="built_in">strlen</span>(pcSrcStr);</div><div class="line">	<span class="keyword">size_t</span> n = (<span class="keyword">size_t</span>)MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, <span class="literal">NULL</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">if</span> (n &gt;= len)n = len - <span class="number">1</span>;</div><div class="line">	MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, pwDestStr, (<span class="keyword">int</span>)n);</div><div class="line">	pwDestStr[n] = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：我犯的错误是 <strong>w2c</strong> 方法里面的codepage也是用的 CP_ACP，导致中文没有被正确翻译。这两个方法的的 codepage 参数是不同的</p>
+</blockquote>
+
       
     </div>
 
@@ -397,7 +409,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://rizo.coding.me/2017/08/26/ProblemSolving/忽略强签名验证/" title="忽略.net dll的强签名验证">http://rizo.coding.me/2017/08/26/ProblemSolving/忽略强签名验证/</a>
+      <a href="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/" title="wchat_t* 转 char*">http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -420,8 +432,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/25/ProblemSolving/如何查看lib文件的导出符号-VisualStudio/" rel="next" title="如何查看lib文件的导出符号(VisualStudio)">
-                <i class="fa fa-chevron-left"></i> 如何查看lib文件的导出符号(VisualStudio)
+              <a href="/2017/08/26/ProblemSolving/忽略强签名验证/" rel="next" title="忽略.net dll的强签名验证">
+                <i class="fa fa-chevron-left"></i> 忽略.net dll的强签名验证
               </a>
             
           </div>
@@ -429,10 +441,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/11/28/ProblemSolving/Convert-wchat-to-char/" rel="prev" title="wchat_t* 转 char*">
-                wchat_t* 转 char* <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -479,17 +487,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -557,22 +556,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#方法一，使用sn-exe-Vr命令"><span class="nav-number">1.</span> <span class="nav-text">方法一，使用sn.exe -Vr命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二，-忽略所有dll的强名称验证"><span class="nav-number">2.</span> <span class="nav-text">方法二， 忽略所有dll的强名称验证</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
