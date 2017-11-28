@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -106,7 +106,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -132,7 +132,7 @@
 
 
 
-  <title>rizo</title>
+  <title>rizo - rizo's blog</title>
   
 
 
@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">rizo's blog</p>
+        <h1 class="site-subtitle" itemprop="description">rizo's blog</h1>
       
   </div>
 
@@ -290,9 +290,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/28/ProblemSolving/解决链接中有括号markdown无法正常解析的问题/" itemprop="url">解决链接中有括号markdown无法正常解析的问题</a></h1>
+                <a class="post-title-link" href="/2017/11/28/ProblemSolving/解决链接中有括号markdown无法正常解析的问题/" itemprop="url">解决链接中有括号markdown无法正常解析的问题</a></h2>
         
 
         <div class="post-meta">
@@ -435,9 +435,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/28/ProblemSolving/Convert-wchat-to-char/" itemprop="url">wchat_t* 转 char*</a></h1>
+                <a class="post-title-link" href="/2017/11/28/ProblemSolving/Convert-wchat-to-char/" itemprop="url">wchat_t* 转 char*</a></h2>
         
 
         <div class="post-meta">
@@ -518,21 +518,14 @@
 
       
         
-          
-            <p>最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，<br>debug，一番折腾。现将结果记录如下。</p>
-<p>1.<a href="http://example.com/test(1).html" target="_blank" rel="external">std::wcstombs</a></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line">length = wcstombs(mbstring,wcstring,N);</div></pre></td></tr></table></figure>
-<p><a href="https://stackoverflow.com/questions/3019977/convert-wchar-t-to-char" target="_blank" rel="external">stackoverflow</a>上的高票答案，然并卵，我测试的情况是所有中文都被吃掉或者显示为问号。</p>
-<p>某些情况下可能有用，没有更多的测试，仅供参考。</p>
-<p>2.<a href="https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k(STRINGAPISET%2FWideCharToMultiByte);k(WideCharToMultiByte);k(DevLang-C%2B%2B);k(TargetOS-Windows)&amp;rd=true" target="_blank" rel="external">WideCharToMultiByte</a></p>
-<p>代码如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//将wchar_t* 转成char*的实现函数如下：</span></div><div class="line"><span class="function">HRESULT <span class="title">w2c</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span> *pwSrcStr, <span class="keyword">char</span> *pcDestStr, <span class="keyword">size_t</span> len)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pwSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	<span class="keyword">int</span> nlength = (<span class="keyword">int</span>)wcslen(pwSrcStr);</div><div class="line"></div><div class="line">	<span class="comment">//获取转换后的长度</span></div><div class="line">	<span class="keyword">int</span> nbytes = WideCharToMultiByte(CP_UTF8, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">		<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">		pwSrcStr,     <span class="comment">// wide character string to convert</span></div><div class="line">		nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no output buffer given, we just want to know how long it needs to be</span></div><div class="line">		<span class="number">0</span>,</div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">		<span class="literal">NULL</span>);    <span class="comment">// we don't want to know if a character didn't make it through the translation</span></div><div class="line">				  <span class="comment">// make sure the buffer is big enough for this, making it larger if necessary</span></div><div class="line"></div><div class="line">	<span class="keyword">if</span> (nbytes &gt; (<span class="keyword">int</span>)len) &#123;</div><div class="line">		<span class="keyword">return</span> MF_E_INVALIDINDEX;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 通过以上得到的结果，转换unicode 字符为ascii 字符</span></div><div class="line">	<span class="keyword">int</span> result = WideCharToMultiByte(CP_UTF8, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">		<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">		pwSrcStr,   <span class="comment">// wide character string to convert</span></div><div class="line">		nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">		pcDestStr, <span class="comment">// put the output ascii characters at the end of the buffer</span></div><div class="line">		nbytes,                           <span class="comment">// there is at least this much space there</span></div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">		<span class="literal">NULL</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (result &lt;= <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">return</span> HRESULT_FROM_WIN32(GetLastError());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	pcDestStr[result] = <span class="string">'\0'</span>;</div><div class="line">	<span class="keyword">return</span> S_OK;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将char* 转成wchar_t*的实现函数如下</span></div><div class="line"><span class="comment">//这是把asii字符转换为unicode字符，和上面相同的原理</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">c2w</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pcSrcStr, <span class="keyword">wchar_t</span> *pwDestStr, <span class="keyword">size_t</span> len)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pcSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="keyword">size_t</span> nu = <span class="built_in">strlen</span>(pcSrcStr);</div><div class="line">	<span class="keyword">size_t</span> n = (<span class="keyword">size_t</span>)MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, <span class="literal">NULL</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">if</span> (n &gt;= len)n = len - <span class="number">1</span>;</div><div class="line">	MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, pwDestStr, (<span class="keyword">int</span>)n);</div><div class="line">	pwDestStr[n] = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>注意：我犯的错误是 <strong>w2c</strong> 方法里面的codepage也是用的 CP_ACP，导致中文没有被正确翻译。这两个方法的的 codepage 参数是不同的</p>
-</blockquote>
-
-          
+          <p>最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，<br>debug，一番折腾。现将结果记录如下。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/28/ProblemSolving/Convert-wchat-to-char/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -591,9 +584,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/08/26/ProblemSolving/忽略强签名验证/" itemprop="url">忽略.net dll的强签名验证</a></h1>
+                <a class="post-title-link" href="/2017/08/26/ProblemSolving/忽略强签名验证/" itemprop="url">忽略.net dll的强签名验证</a></h2>
         
 
         <div class="post-meta">
@@ -674,12 +667,14 @@
 
       
         
-          
-            <h2 id="方法一，使用sn-exe-Vr命令"><a href="#方法一，使用sn-exe-Vr命令" class="headerlink" title="方法一，使用sn.exe -Vr命令"></a>方法一，使用sn.exe -Vr命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sn.exe -Vr ***.dll</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">REM build.cmd</div><div class="line"></div><div class="line">@echo off</div><div class="line">chcp 65001</div><div class="line"></div><div class="line">set sn=&quot;C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6 Tools\sn.exe&quot;</div><div class="line">if not exist %sn% goto error_exe_not_found</div><div class="line"></div><div class="line">::build.cmd 放置在项目目录的build子目录中,dll放置在bin目录中 </div><div class="line"></div><div class="line">cd %~d0</div><div class="line">cd %~dp0 </div><div class="line">cd ..</div><div class="line">cd bin</div><div class="line"></div><div class="line">if exist &quot;App.exe&quot; %sn% -Vr &quot;App.exe&quot;</div><div class="line">if exist &quot;NRBS.dll&quot; %sn% -Vr &quot;HNRBS.dll&quot;</div><div class="line">if exist &quot;Utility.dll&quot; %sn% -Vr &quot;Utility.dll&quot;</div><div class="line">if exist &quot;UI.Controls.dll&quot; %sn% -Vr &quot;UI.Controls.dll&quot;</div><div class="line"></div><div class="line">echo 设置完成！</div><div class="line"></div><div class="line">goto end</div><div class="line"></div><div class="line">:error_exe_not_found</div><div class="line">echo sn未找到，路径参数设置失败，</div><div class="line">goto end</div><div class="line"></div><div class="line">::--------------------------------------------------------------------------------------------------------------------</div><div class="line">:end</div><div class="line">pause</div></pre></td></tr></table></figure>
-<h2 id="方法二，-忽略所有dll的强名称验证"><a href="#方法二，-忽略所有dll的强名称验证" class="headerlink" title="方法二， 忽略所有dll的强名称验证"></a>方法二， 忽略所有dll的强名称验证</h2><p>将下面代码保存为 stong_name.reg 文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">REM strong_name.reg</div><div class="line"></div><div class="line">reg DELETE &quot;HKLM\Software\Microsoft\StrongName\Verification&quot; /f</div><div class="line">reg ADD &quot;HKLM\Software\Microsoft\StrongName\Verification\*,*&quot; /f</div><div class="line">reg DELETE &quot;HKLM\Software\Wow6432Node\Microsoft\StrongName\Verification&quot; /f</div><div class="line">reg ADD &quot;HKLM\Software\Wow6432Node\Microsoft\StrongName\Verification\*,*&quot; /f</div></pre></td></tr></table></figure>
-          
+          <h2 id="方法一，使用sn-exe-Vr命令"><a href="#方法一，使用sn-exe-Vr命令" class="headerlink" title="方法一，使用sn.exe -Vr命令"></a>方法一，使用sn.exe -Vr命令</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sn.exe -Vr ***.dll</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/26/ProblemSolving/忽略强签名验证/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -738,9 +733,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/25/ProblemSolving/如何查看lib文件的导出符号-VisualStudio/" itemprop="url">如何查看lib文件的导出符号(VisualStudio)</a></h1>
+                <a class="post-title-link" href="/2017/07/25/ProblemSolving/如何查看lib文件的导出符号-VisualStudio/" itemprop="url">如何查看lib文件的导出符号(VisualStudio)</a></h2>
         
 
         <div class="post-meta">
@@ -888,9 +883,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/21/ProblemSolving/输出文件夹里所有文件的名称/" itemprop="url">输出文件夹里所有文件的名称</a></h1>
+                <a class="post-title-link" href="/2017/07/21/ProblemSolving/输出文件夹里所有文件的名称/" itemprop="url">输出文件夹里所有文件的名称</a></h2>
         
 
         <div class="post-meta">
@@ -972,18 +967,19 @@
       
         
           
-            <p>之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：  </p>
+            <p>之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：</p>
 <ol>
-<li><p>输出当前目录下所有文件的文件名到output.txt  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &gt; output.txt /b /o</div></pre></td></tr></table></figure>
-</li>
-<li><p>输出指定目录下的所有文件的文件名到output.txt  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &quot;path&quot; &gt; output.txt /b /o</div></pre></td></tr></table></figure>
-</li>
-<li><p>导出包括子文件下所有文件的文件名  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tree /f &gt; 1.txt</div></pre></td></tr></table></figure></li>
+<li>输出当前目录下所有文件的文件名到output.txt</li>
 </ol>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &gt; output.txt /b /o</div></pre></td></tr></table></figure>
+<ol>
+<li>输出指定目录下的所有文件的文件名到output.txt</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir <span class="string">"path"</span> &gt; output.txt /b /o</div></pre></td></tr></table></figure>
+<ol>
+<li>导出包括子文件下所有文件的文件名</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tree /f &gt; 1.txt</div></pre></td></tr></table></figure>
           
         
       
@@ -1059,7 +1055,7 @@
           <p class="site-author-name" itemprop="name">rizo</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
-          
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -1088,7 +1084,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1151,7 +1147,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

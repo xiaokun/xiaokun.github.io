@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="c++," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。 1.std::wcstombs 12#include &amp;lt;stdlib.h&amp;gt;length = wcstombs(mbstring,wcstring,N); stackoverflow上的高票答案，然并卵，我测试的情况是所有中">
+<meta name="description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。">
+<meta name="keywords" content="c++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="wchat_t* 转 char*">
 <meta property="og:url" content="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/index.html">
 <meta property="og:site_name" content="rizo">
-<meta property="og:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。 1.std::wcstombs 12#include &amp;lt;stdlib.h&amp;gt;length = wcstombs(mbstring,wcstring,N); stackoverflow上的高票答案，然并卵，我测试的情况是所有中">
-<meta property="og:updated_time" content="2017-11-28T10:22:08.471Z">
+<meta property="og:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。">
+<meta property="og:updated_time" content="2017-11-28T11:12:54.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="wchat_t* 转 char*">
-<meta name="twitter:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。 1.std::wcstombs 12#include &amp;lt;stdlib.h&amp;gt;length = wcstombs(mbstring,wcstring,N); stackoverflow上的高票答案，然并卵，我测试的情况是所有中">
+<meta name="twitter:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。">
 
 
 
@@ -110,7 +111,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -177,7 +178,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">rizo's blog</p>
+        <h1 class="site-subtitle" itemprop="description">rizo's blog</h1>
       
   </div>
 
@@ -292,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">wchat_t* 转 char*</h1>
+          <h2 class="post-title" itemprop="name headline">wchat_t* 转 char*</h2>
         
 
         <div class="post-meta">
@@ -378,6 +379,7 @@
 
       
         <p>最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，<br>debug，一番折腾。现将结果记录如下。</p>
+<a id="more"></a>
 <p>1.<a href="http://example.com/test(1).html" target="_blank" rel="external">std::wcstombs</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line">length = wcstombs(mbstring,wcstring,N);</div></pre></td></tr></table></figure>
 <p><a href="https://stackoverflow.com/questions/3019977/convert-wchar-t-to-char" target="_blank" rel="external">stackoverflow</a>上的高票答案，然并卵，我测试的情况是所有中文都被吃掉或者显示为问号。</p>
@@ -430,6 +432,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/c/" rel="tag"># c++</a>
+          
+        </div>
       
 
       
@@ -508,7 +516,7 @@
           <p class="site-author-name" itemprop="name">rizo</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
-          
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -537,7 +545,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -600,7 +608,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="bash," />
 
 
 
@@ -93,16 +93,17 @@
 
 
 
-<meta name="description" content="之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：    输出当前目录下所有文件的文件名到output.txt   1dir &amp;gt; output.txt /b /o  输出指定目录下的所有文件的文件名到output.txt   1dir &amp;quot;path&amp;quot; &amp;gt; output">
+<meta name="description" content="之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：  输出当前目录下所有文件的文件名到output.txt  1dir &amp;gt; output.txt /b /o  输出指定目录下的所有文件的文件名到output.txt  1dir &quot;path&quot; &amp;gt; output.txt /b /o  导出">
+<meta name="keywords" content="bash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="输出文件夹里所有文件的名称">
 <meta property="og:url" content="http://rizo.coding.me/2017/07/21/ProblemSolving/输出文件夹里所有文件的名称/index.html">
 <meta property="og:site_name" content="rizo">
-<meta property="og:description" content="之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：    输出当前目录下所有文件的文件名到output.txt   1dir &amp;gt; output.txt /b /o  输出指定目录下的所有文件的文件名到output.txt   1dir &amp;quot;path&amp;quot; &amp;gt; output">
-<meta property="og:updated_time" content="2017-08-17T07:22:56.184Z">
+<meta property="og:description" content="之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：  输出当前目录下所有文件的文件名到output.txt  1dir &amp;gt; output.txt /b /o  输出指定目录下的所有文件的文件名到output.txt  1dir &quot;path&quot; &amp;gt; output.txt /b /o  导出">
+<meta property="og:updated_time" content="2017-11-28T11:13:30.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="输出文件夹里所有文件的名称">
-<meta name="twitter:description" content="之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：    输出当前目录下所有文件的文件名到output.txt   1dir &amp;gt; output.txt /b /o  输出指定目录下的所有文件的文件名到output.txt   1dir &amp;quot;path&amp;quot; &amp;gt; output">
+<meta name="twitter:description" content="之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：  输出当前目录下所有文件的文件名到output.txt  1dir &amp;gt; output.txt /b /o  输出指定目录下的所有文件的文件名到output.txt  1dir &quot;path&quot; &amp;gt; output.txt /b /o  导出">
 
 
 
@@ -110,7 +111,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -177,7 +178,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">rizo's blog</p>
+        <h1 class="site-subtitle" itemprop="description">rizo's blog</h1>
       
   </div>
 
@@ -292,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">输出文件夹里所有文件的名称</h1>
+          <h2 class="post-title" itemprop="name headline">输出文件夹里所有文件的名称</h2>
         
 
         <div class="post-meta">
@@ -377,18 +378,19 @@
       
 
       
-        <p>之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：  </p>
+        <p>之前编译的opencv lib文件实在太多，项目需要把所有lib文件的名称写入到linker里面，搜索一番，下面这些命令很好的解决了这个问题，记录如下：</p>
 <ol>
-<li><p>输出当前目录下所有文件的文件名到output.txt  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &gt; output.txt /b /o</div></pre></td></tr></table></figure>
-</li>
-<li><p>输出指定目录下的所有文件的文件名到output.txt  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &quot;path&quot; &gt; output.txt /b /o</div></pre></td></tr></table></figure>
-</li>
-<li><p>导出包括子文件下所有文件的文件名  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tree /f &gt; 1.txt</div></pre></td></tr></table></figure></li>
+<li>输出当前目录下所有文件的文件名到output.txt</li>
 </ol>
-
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir &gt; output.txt /b /o</div></pre></td></tr></table></figure>
+<ol>
+<li>输出指定目录下的所有文件的文件名到output.txt</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dir <span class="string">"path"</span> &gt; output.txt /b /o</div></pre></td></tr></table></figure>
+<ol>
+<li>导出包括子文件下所有文件的文件名</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tree /f &gt; 1.txt</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -429,6 +431,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/bash/" rel="tag"># bash</a>
+          
+        </div>
       
 
       
@@ -507,7 +515,7 @@
           <p class="site-author-name" itemprop="name">rizo</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
-          
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -536,7 +544,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -599,7 +607,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

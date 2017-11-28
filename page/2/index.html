@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -106,7 +106,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -132,7 +132,7 @@
 
 
 
-  <title>rizo</title>
+  <title>rizo - rizo's blog</title>
   
 
 
@@ -175,7 +175,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">rizo's blog</p>
+        <h1 class="site-subtitle" itemprop="description">rizo's blog</h1>
       
   </div>
 
@@ -290,9 +290,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/23/ProblemSolving/VSCode-关联文件类型/" itemprop="url">VSCode 关联文件类型</a></h1>
+                <a class="post-title-link" href="/2017/06/23/ProblemSolving/VSCode-关联文件类型/" itemprop="url">VSCode 关联文件类型</a></h2>
         
 
         <div class="post-meta">
@@ -443,9 +443,9 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/06/22/ProblemSolving/how-to-cache-git-credential/" itemprop="url">how to cache git credential</a></h1>
+                <a class="post-title-link" href="/2017/06/22/ProblemSolving/how-to-cache-git-credential/" itemprop="url">how to cache git credential</a></h2>
         
 
         <div class="post-meta">
@@ -526,20 +526,18 @@
 
       
         
-          
-            <p>使用git-bash操作coding.net时总是提示输入密码，在官方帮助里找到如下解决方案：</p>
+          <p>使用git-bash操作coding.net时总是提示输入密码，在官方帮助里找到如下解决方案：</p>
 <h2 id="怎样在每次-Push-时不用重复输入密码？"><a href="#怎样在每次-Push-时不用重复输入密码？" class="headerlink" title="怎样在每次 Push 时不用重复输入密码？"></a>怎样在每次 Push 时不用重复输入密码？</h2><p><strong>有两种方法：</strong>  </p>
 <ul>
 <li>使用 SSH 方式进行推送，您需要配置 SSH 公钥后进行操作，详情请阅读 SSH 公钥配置文档</li>
 <li><p>对于 Https 协议: 首先在全局配置保存你的密码， ~/.git-credentials （没有就创建）内添加 <a href="https://{username}:{passwd}@git.coding.net" target="_blank" rel="external">https://{username}:{passwd}@git.coding.net</a> 然后执行配置 Git 命令存储认证命令：   </p>
-<pre><code>$git config --global credential.helper store
-</code></pre><p>  执行后在 ~/.gitconfig 文件会多出下面配置项:    </p>
-<pre><code>credential.helper = store
-</code></pre></li>
-</ul>
-<p>详情请参考凭证存储 。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/22/ProblemSolving/how-to-cache-git-credential/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -614,7 +612,7 @@
           <p class="site-author-name" itemprop="name">rizo</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
-          
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -643,7 +641,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -706,7 +704,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 

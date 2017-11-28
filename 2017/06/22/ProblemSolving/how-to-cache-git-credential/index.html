@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://rizo.coding.me/2017/06/22/ProblemSolving/how-to-cache-git-credential/index.html">
 <meta property="og:site_name" content="rizo">
 <meta property="og:description" content="使用git-bash操作coding.net时总是提示输入密码，在官方帮助里找到如下解决方案： 怎样在每次 Push 时不用重复输入密码？有两种方法：    使用 SSH 方式进行推送，您需要配置 SSH 公钥后进行操作，详情请阅读 SSH 公钥配置文档 对于 Https 协议: 首先在全局配置保存你的密码， ~/.git-credentials （没有就创建）内添加 https://{usern">
-<meta property="og:updated_time" content="2017-07-08T02:39:31.000Z">
+<meta property="og:updated_time" content="2017-11-28T11:12:57.396Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="how to cache git credential">
 <meta name="twitter:description" content="使用git-bash操作coding.net时总是提示输入密码，在官方帮助里找到如下解决方案： 怎样在每次 Push 时不用重复输入密码？有两种方法：    使用 SSH 方式进行推送，您需要配置 SSH 公钥后进行操作，详情请阅读 SSH 公钥配置文档 对于 Https 协议: 首先在全局配置保存你的密码， ~/.git-credentials （没有就创建）内添加 https://{usern">
@@ -111,7 +111,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Mist',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
@@ -178,7 +178,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">rizo's blog</p>
+        <h1 class="site-subtitle" itemprop="description">rizo's blog</h1>
       
   </div>
 
@@ -293,7 +293,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">how to cache git credential</h1>
+          <h2 class="post-title" itemprop="name headline">how to cache git credential</h2>
         
 
         <div class="post-meta">
@@ -383,6 +383,7 @@
 <ul>
 <li>使用 SSH 方式进行推送，您需要配置 SSH 公钥后进行操作，详情请阅读 SSH 公钥配置文档</li>
 <li><p>对于 Https 协议: 首先在全局配置保存你的密码， ~/.git-credentials （没有就创建）内添加 <a href="https://{username}:{passwd}@git.coding.net" target="_blank" rel="external">https://{username}:{passwd}@git.coding.net</a> 然后执行配置 Git 命令存储认证命令：   </p>
+<a id="more"></a>
 <pre><code>$git config --global credential.helper store
 </code></pre><p>  执行后在 ~/.gitconfig 文件会多出下面配置项:    </p>
 <pre><code>credential.helper = store
@@ -519,7 +520,7 @@
           <p class="site-author-name" itemprop="name">rizo</p>
            
               <p class="site-description motion-element" itemprop="description"></p>
-          
+           
         </div>
         <nav class="site-state motion-element">
 
@@ -548,7 +549,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -627,7 +628,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Muse
+    NexT.Mist
   </a>
 </div>
 
