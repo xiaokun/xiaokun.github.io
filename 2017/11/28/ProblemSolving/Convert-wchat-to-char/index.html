@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。">
+<meta name="description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，真是好一番折腾…">
 <meta name="keywords" content="c++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wchat_t* 转 char*">
+<meta property="og:title" content="wchat_t* 转 char* 的中文问题">
 <meta property="og:url" content="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/index.html">
 <meta property="og:site_name" content="rizo">
-<meta property="og:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。">
-<meta property="og:updated_time" content="2017-11-28T11:12:54.454Z">
+<meta property="og:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，真是好一番折腾…">
+<meta property="og:updated_time" content="2017-12-05T08:25:09.566Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="wchat_t* 转 char*">
-<meta name="twitter:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，一番折腾。现将结果记录如下。">
+<meta name="twitter:title" content="wchat_t* 转 char* 的中文问题">
+<meta name="twitter:description" content="最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，真是好一番折腾…">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title>wchat_t* 转 char* | rizo</title>
+  <title>wchat_t* 转 char* 的中文问题 | rizo</title>
   
 
 
@@ -178,7 +178,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">rizo's blog</h1>
+        <h1 class="site-subtitle" itemprop="description">业精于勤而荒于嬉，行成于思而毁于随</h1>
       
   </div>
 
@@ -293,7 +293,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">wchat_t* 转 char*</h2>
+          <h2 class="post-title" itemprop="name headline">wchat_t* 转 char* 的中文问题</h2>
         
 
         <div class="post-meta">
@@ -345,7 +345,7 @@
 
           
           
-             <span id="/2017/11/28/ProblemSolving/Convert-wchat-to-char/" class="leancloud_visitors" data-flag-title="wchat_t* 转 char*">
+             <span id="/2017/11/28/ProblemSolving/Convert-wchat-to-char/" class="leancloud_visitors" data-flag-title="wchat_t* 转 char* 的中文问题">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,19 +378,24 @@
       
 
       
-        <p>最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，<br>debug，一番折腾。现将结果记录如下。</p>
+        <p>最近又遇到产品在英文系统无法使用的问题，遂下决心解决这个问题。花了一个下午，安装英文版系统，装 visual studio，debug，真是好一番折腾…</p>
 <a id="more"></a>
-<p>1.<a href="http://example.com/test(1).html" target="_blank" rel="external">std::wcstombs</a></p>
+<ol>
+<li><p><a href="http://example.com/test(1).html" target="_blank" rel="external">std::wcstombs</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></div><div class="line">length = wcstombs(mbstring,wcstring,N);</div></pre></td></tr></table></figure>
 <p><a href="https://stackoverflow.com/questions/3019977/convert-wchar-t-to-char" target="_blank" rel="external">stackoverflow</a>上的高票答案，然并卵，我测试的情况是所有中文都被吃掉或者显示为问号。</p>
 <p>某些情况下可能有用，没有更多的测试，仅供参考。</p>
-<p>2.<a href="https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k(STRINGAPISET%2FWideCharToMultiByte);k(WideCharToMultiByte);k(DevLang-C%2B%2B);k(TargetOS-Windows)&amp;rd=true" target="_blank" rel="external">WideCharToMultiByte</a></p>
+</li>
+<li><p><a href="https://msdn.microsoft.com/query/dev14.query?appId=Dev14IDEF1&amp;l=EN-US&amp;k=k(STRINGAPISET%2FWideCharToMultiByte);k(WideCharToMultiByte);k(DevLang-C%2B%2B);k(TargetOS-Windows)&amp;rd=true" target="_blank" rel="external">WideCharToMultiByte</a></p>
 <p>代码如下</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//将wchar_t* 转成char*的实现函数如下：</span></div><div class="line"><span class="function">HRESULT <span class="title">w2c</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span> *pwSrcStr, <span class="keyword">char</span> *pcDestStr, <span class="keyword">size_t</span> len)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pwSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	<span class="keyword">int</span> nlength = (<span class="keyword">int</span>)wcslen(pwSrcStr);</div><div class="line"></div><div class="line">	<span class="comment">//获取转换后的长度</span></div><div class="line">	<span class="keyword">int</span> nbytes = WideCharToMultiByte(CP_UTF8, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">		<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">		pwSrcStr,     <span class="comment">// wide character string to convert</span></div><div class="line">		nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no output buffer given, we just want to know how long it needs to be</span></div><div class="line">		<span class="number">0</span>,</div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">		<span class="literal">NULL</span>);    <span class="comment">// we don't want to know if a character didn't make it through the translation</span></div><div class="line">				  <span class="comment">// make sure the buffer is big enough for this, making it larger if necessary</span></div><div class="line"></div><div class="line">	<span class="keyword">if</span> (nbytes &gt; (<span class="keyword">int</span>)len) &#123;</div><div class="line">		<span class="keyword">return</span> MF_E_INVALIDINDEX;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">// 通过以上得到的结果，转换unicode 字符为ascii 字符</span></div><div class="line">	<span class="keyword">int</span> result = WideCharToMultiByte(CP_UTF8, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">		<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">		pwSrcStr,   <span class="comment">// wide character string to convert</span></div><div class="line">		nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">		pcDestStr, <span class="comment">// put the output ascii characters at the end of the buffer</span></div><div class="line">		nbytes,                           <span class="comment">// there is at least this much space there</span></div><div class="line">		<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">		<span class="literal">NULL</span>);</div><div class="line"></div><div class="line">	<span class="keyword">if</span> (result &lt;= <span class="number">0</span>) &#123;</div><div class="line">		<span class="keyword">return</span> HRESULT_FROM_WIN32(GetLastError());</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	pcDestStr[result] = <span class="string">'\0'</span>;</div><div class="line">	<span class="keyword">return</span> S_OK;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将char* 转成wchar_t*的实现函数如下</span></div><div class="line"><span class="comment">//这是把asii字符转换为unicode字符，和上面相同的原理</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">c2w</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pcSrcStr, <span class="keyword">wchar_t</span> *pwDestStr, <span class="keyword">size_t</span> len)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pcSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="keyword">size_t</span> nu = <span class="built_in">strlen</span>(pcSrcStr);</div><div class="line">	<span class="keyword">size_t</span> n = (<span class="keyword">size_t</span>)MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, <span class="literal">NULL</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">if</span> (n &gt;= len)n = len - <span class="number">1</span>;</div><div class="line">	MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, pwDestStr, (<span class="keyword">int</span>)n);</div><div class="line">	pwDestStr[n] = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//将wchar_t* 转成char*的实现函数如下：</span></div><div class="line"><span class="function">HRESULT <span class="title">w2c</span><span class="params">(<span class="keyword">const</span> <span class="keyword">wchar_t</span> *pwSrcStr, <span class="keyword">char</span> *pcDestStr, <span class="keyword">size_t</span> len, UINT codePage <span class="comment">/*= CP_UTF8*/</span>)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pwSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">	<span class="keyword">int</span> nlength = (<span class="keyword">int</span>)wcslen(pwSrcStr);</div><div class="line"></div><div class="line">	<span class="comment">//获取转换后的长度</span></div><div class="line">	<span class="keyword">int</span> nbytes = WideCharToMultiByte(codePage, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">	<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">	pwSrcStr,     <span class="comment">// wide character string to convert</span></div><div class="line">	nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">	<span class="literal">NULL</span>,      <span class="comment">// no output buffer given, we just want to know how long it needs to be</span></div><div class="line">	<span class="number">0</span>,</div><div class="line">	<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">	<span class="literal">NULL</span>);    <span class="comment">// we don't want to know if a character didn't make it through the translation</span></div><div class="line">			  <span class="comment">// make sure the buffer is big enough for this, making it larger if necessary</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> (nbytes &gt; (<span class="keyword">int</span>)len) &#123;</div><div class="line">	<span class="keyword">return</span> MF_E_INVALIDINDEX;</div><div class="line">&#125;</div><div class="line"><span class="comment">// 通过以上得到的结果，转换unicode 字符为ascii 字符</span></div><div class="line"><span class="keyword">int</span> result = WideCharToMultiByte(codePage, <span class="comment">// specify the code page used to perform the conversion</span></div><div class="line">	<span class="number">0</span>,         <span class="comment">// no special flags to handle unmapped characters</span></div><div class="line">	pwSrcStr,   <span class="comment">// wide character string to convert</span></div><div class="line">	nlength,   <span class="comment">// the number of wide characters in that string</span></div><div class="line">	pcDestStr, <span class="comment">// put the output ascii characters at the end of the buffer</span></div><div class="line">	nbytes,                           <span class="comment">// there is at least this much space there</span></div><div class="line">	<span class="literal">NULL</span>,      <span class="comment">// no replacement character given</span></div><div class="line">	<span class="literal">NULL</span>);</div><div class="line"></div><div class="line"><span class="keyword">if</span> (result &lt;= <span class="number">0</span>) &#123;</div><div class="line">	<span class="keyword">return</span> HRESULT_FROM_WIN32(GetLastError());</div><div class="line">&#125;</div><div class="line"></div><div class="line">pcDestStr[result] = <span class="string">'\0'</span>;</div><div class="line"><span class="keyword">return</span> S_OK;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>经过测试，发现 codepage 使用 <strong>CP_UTF8</strong> 和 <strong>CP_ACP</strong> 在中文系统下均是问题不大，都可以顺利转换。<br>但是在英文系统下问题就来了：<br>  使用 CP_UTF8 转换的char*可以被ffmpeg识别，但是opencv和opencl不能识别；<br>  使用 CP_ACP 转换的结果ffmpeg、opencv、opencl均无法识别；  </p>
+</li>
+</ol>
 <blockquote>
-<p>注意：我犯的错误是 <strong>w2c</strong> 方法里面的codepage也是用的 CP_ACP，导致中文没有被正确翻译。这两个方法的的 codepage 参数是不同的</p>
+<p>总结，目前为止，仍然没有找到完美解决中文路径转单字节字符串的方案。</p>
 </blockquote>
+<p>另附 char <em> 转 wchar_t </em>，仅供参考：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//将char* 转成wchar_t*的实现函数如下</span></div><div class="line"><span class="comment">//这是把asii字符转换为unicode字符，和上面相同的原理</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">c2w</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *pcSrcStr, <span class="keyword">wchar_t</span> *pwDestStr, <span class="keyword">size_t</span> len)</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">if</span> (pcSrcStr == <span class="literal">nullptr</span>) <span class="keyword">return</span>;</div><div class="line">	<span class="keyword">size_t</span> nu = <span class="built_in">strlen</span>(pcSrcStr);</div><div class="line">	<span class="keyword">size_t</span> n = (<span class="keyword">size_t</span>)MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, <span class="literal">NULL</span>, <span class="number">0</span>);</div><div class="line">	<span class="keyword">if</span> (n &gt;= len)n = len - <span class="number">1</span>;</div><div class="line">	MultiByteToWideChar(CP_ACP, <span class="number">0</span>, (<span class="keyword">const</span> <span class="keyword">char</span> *)pcSrcStr, (<span class="keyword">int</span>)nu, pwDestStr, (<span class="keyword">int</span>)n);</div><div class="line">	pwDestStr[n] = <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -419,7 +424,7 @@
     </li>
     <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/" title="wchat_t* 转 char*">http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/</a>
+      <a href="http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/" title="wchat_t* 转 char* 的中文问题">http://rizo.coding.me/2017/11/28/ProblemSolving/Convert-wchat-to-char/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明： </strong>
@@ -523,7 +528,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -545,7 +550,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
